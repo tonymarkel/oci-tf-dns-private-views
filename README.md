@@ -1,2 +1,7 @@
 # oci-tf-dns-private-views
-Terraform Code Sample to use as a standalone module or integrated with Terraform Repositories
+Terraform Code to integrate with an existing repository
+
+## Prerequisites:
+* Existing Tenancy
+* Existing Network Compartment
+* Existing Virtual Cloud Network

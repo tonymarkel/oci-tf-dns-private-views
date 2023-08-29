@@ -1,0 +1,70 @@
+dns_views = {
+    example-view = {
+        compartment_id = "example-compartment"
+        defined_tags = {
+        }
+        display_name = "example-view"
+        freeform_tags = {
+        }
+    }
+}
+
+dns_resolvers = {
+    example-resolver = {
+        view_id                  = "example-dns-view"
+        compartment_id           = "example-compartment"
+        defined_tags             = {}
+        display_name             = "example-resolver"
+        freeform_tags            = {}
+        scope                    = "PRIVATE"
+        rules = [
+            {
+                action = "FORWARD"
+                client_address_conditions = [
+                ]
+                destination_addresses = [
+                "1.1.1.1",
+                ]
+                qname_cover_conditions = [
+                "private.domain.host",
+                ]
+                source_endpoint_name = "example-endpoint-private-subnet"
+            },
+            {
+                action = "FORWARD"
+                client_address_conditions = [
+                ]
+                destination_addresses = [
+                "1.1.1.1",
+                ]
+                qname_cover_conditions = [
+                "public.domain.host",
+                ]
+                source_endpoint_name = "example-endpoint-public-subnet"
+            },
+        ]
+    },
+}
+
+dns_resolver_endpoints = {
+    example-private-subnet-forwarder = {
+        endpoint_type      = "VNIC"
+        forwarding_address = "172.21.34.252" #IP for the dns resolver endpoint in a local subnet
+        is_forwarding      = "true"
+        is_listening       = "false"
+        name               = "example-private-subnet-forwarder"
+        resolver_id        = "example-resolver"
+        subnet_id          = "public-subnet"       
+        nsg_ids            = []  
+    },
+    example-private-subnet-listener = {
+        endpoint_type      = "VNIC"
+        forwarding_address = "172.21.34.252" #IP for the dns resolver endpoint in a local subnet
+        is_forwarding      = "false"
+        is_listening       = "true"
+        name               = "example-private-subnet-listener"
+        resolver_id        = "example-resolver"
+        subnet_id          = "public-subnet"
+        nsg_ids            = []     
+    },
+}
