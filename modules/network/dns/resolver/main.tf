@@ -1,6 +1,6 @@
 resource oci_dns_resolver dns_resolver {
   attached_views {
-    view_id                   = var.dns_view_id
+    view_id                   = var.view_id
   }
   compartment_id           = var.compartment_id
   resolver_id              = var.resolver_id

@@ -30,4 +30,9 @@ variable "key_name" {
   default = null
 }
 
+variable "view_id" {
+  type    = string
+  default = null
+}
+
 variable "rules" {}
