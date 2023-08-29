@@ -9,15 +9,15 @@ variable "dns_resolvers" {
       view_id                     = string
     })))
     compartment_id             = string
-    defined_tags               = {}
+    defined_tags               = optional(map(any))
     display_name               = string
-    freeform_tags              = {}
+    freeform_tags              = optional(map(any))
     resolver_id                = string
     rules                      = optional(list(object({
       action                     = string
-      client_address_conditions  = []
-      destination_addresses      = []
-      qname_cover_conditions     = []
+      client_address_conditions  = optional(list(string))
+      destination_addresses      = optional(list(string))
+      qname_cover_conditions     = optional(list(string))
       source_endpoint_name       = string
     })))
     scope                      = optional(string)
@@ -38,6 +38,7 @@ variable "dns_resolver_endpoints" {
     scope                      = optional(string)
     vcn_display_name           = string
     subnet_id                  = string
-    nsg_ids                    = []
+    nsg_ids                    = optional(list(string))
   }))
+  default                    = {}
 }
