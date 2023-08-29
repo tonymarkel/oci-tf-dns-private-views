@@ -3,6 +3,7 @@ resource oci_dns_resolver dns_resolver {
     view_id                   = var.dns_view_id
   }
   compartment_id           = var.compartment_id
+  resolver_id              = var.resolver_id
   defined_tags             = var.defined_tags
   display_name             = var.display_name
   freeform_tags            = var.freeform_tags

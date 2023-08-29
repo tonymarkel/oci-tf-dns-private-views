@@ -8,5 +8,5 @@ resource oci_dns_resolver_endpoint resolver_endpoint {
   nsg_ids            = var.nsg_ids
   resolver_id        = var.resolver_id
   scope              = var.scope
-  subnet_id          = var.subnet_id
+  subnet_id          = data.oci_core_subnets.subnet.id
 }

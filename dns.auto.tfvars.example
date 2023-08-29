@@ -1,20 +1,16 @@
-dns_views = {
-    example-view = {
-        compartment_id = "example-compartment"
-        defined_tags = {
-        }
-        display_name = "example-view"
-        freeform_tags = {
-        }
-    }
-}
-
 dns_resolvers = {
-    example-resolver = {
-        view_id                  = "example-dns-view"
+    example = {
+
+        # N.B.:
+        # "example" refers to the name of a vcn. Where you see example as a standalone 
+        # definition, it is assuming that the names created for the view and resolver
+        # match the name of the vcn. The is what happens when a vcn is created.
+
+        resolver_id              = "example"
+        view_id                  = "example"
         compartment_id           = "example-compartment"
         defined_tags             = {}
-        display_name             = "example-resolver"
+        display_name             = "example"
         freeform_tags            = {}
         scope                    = "PRIVATE"
         rules = [
@@ -23,7 +19,7 @@ dns_resolvers = {
                 client_address_conditions = [
                 ]
                 destination_addresses = [
-                "1.1.1.1",
+                "10.1.1.1",
                 ]
                 qname_cover_conditions = [
                 "private.domain.host",
@@ -35,7 +31,7 @@ dns_resolvers = {
                 client_address_conditions = [
                 ]
                 destination_addresses = [
-                "1.1.1.1",
+                "8.8.8.8",
                 ]
                 qname_cover_conditions = [
                 "public.domain.host",
@@ -53,8 +49,9 @@ dns_resolver_endpoints = {
         is_forwarding      = "true"
         is_listening       = "false"
         name               = "example-private-subnet-forwarder"
-        resolver_id        = "example-resolver"
-        subnet_id          = "public-subnet"       
+        vcn_display_name   = "example"
+        resolver_id        = "example"
+        subnet_id          = "private-subnet"       
         nsg_ids            = []  
     },
     example-private-subnet-listener = {
@@ -63,8 +60,9 @@ dns_resolver_endpoints = {
         is_forwarding      = "false"
         is_listening       = "true"
         name               = "example-private-subnet-listener"
-        resolver_id        = "example-resolver"
-        subnet_id          = "public-subnet"
+        vcn_display_name   = "example"
+        resolver_id        = "example"
+        subnet_id          = "private-subnet"
         nsg_ids            = []     
     },
 }
