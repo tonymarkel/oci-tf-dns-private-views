@@ -9,7 +9,7 @@ data "oci_identity_compartments" "compartment" {
 }
 
 data "oci_dns_views" "view" {
-  count                     = var.compartment_id != null ? 1 : 0
+  count                     = var.view_id != null ? 1 : 0
   compartment_id            = var.compartment_id
   scope                     = "PRIVATE"
   display_name              = var.view_id
