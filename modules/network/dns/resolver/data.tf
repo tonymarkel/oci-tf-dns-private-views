@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 data "oci_identity_compartments" "compartment" {
   count          = var.compartment_id != null ? 1 : 0
   compartment_id            = var.tenancy_id
@@ -21,3 +22,10 @@ data "oci_dns_resolvers" "resolver" {
     scope = "PRIVATE"
     display_name = var.resolver_id
 }
+=======
+data "oci_dns_views" "view" {
+    compartment_id = var.compartment_id
+    scope = "PRIVATE"
+    display_name = var.view_id
+}
+>>>>>>> 7273fb113f3237db4e579e5bd44b58a2613e69f1

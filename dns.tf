@@ -1,9 +1,14 @@
 module "dns_resolver" {
     source                  = "./modules/network/dns/resolver"
     for_each                = (var.dns_resolvers != null || var.dns_resolvers != {}) ? var.dns_resolvers : {}
+<<<<<<< HEAD
     view_id                 = each.value.view_id 
     compartment_id          = each.value.compartment_id
     tenancy_id              = var.tenancy_id
+=======
+    view_id                 = each.value.view_id
+    compartment_id          = data.oci_identity_compartments.compartment.id[0]
+>>>>>>> 7273fb113f3237db4e579e5bd44b58a2613e69f1
     defined_tags            = each.value.defined_tags
     display_name            = each.value.display_name
     freeform_tags           = each.value.freeform_tags
