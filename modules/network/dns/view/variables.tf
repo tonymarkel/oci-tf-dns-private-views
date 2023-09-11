@@ -19,3 +19,8 @@ variable "freeform_tags" {
   type    = map(any)
   default = {}
 }
+
+variable "tenancy_id" {
+  type    = string
+  default = null
+}
