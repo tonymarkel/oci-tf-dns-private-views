@@ -1,3 +1,7 @@
+variable "compartment_id" {
+  type    = string
+  default = null
+}
 variable "endpoint_type" {
   type    = string
   default = null
@@ -23,8 +27,8 @@ variable "name" {
   default = null
 }
 variable "nsg_ids" {
-  type    = string
-  default = null
+  type    = list 
+  default = []
 }
 variable "resolver_id" {
   type    = string
@@ -35,6 +39,10 @@ variable "scope" {
   default = null
 }
 variable "subnet_id" {
+  type    = string
+  default = null
+}
+variable "vcn_display_name" {
   type    = string
   default = null
 }

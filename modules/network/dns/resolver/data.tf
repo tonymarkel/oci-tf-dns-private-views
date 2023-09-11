@@ -1,5 +1,6 @@
 data "oci_identity_compartments" "compartment" {
-  compartment_id            = var.tenancy_ocid
+  count          = var.compartment_id != null ? 1 : 0
+  compartment_id            = var.tenancy_id
   compartment_id_in_subtree = true
   filter {
     name   = "name"
@@ -8,12 +9,14 @@ data "oci_identity_compartments" "compartment" {
 }
 
 data "oci_dns_views" "view" {
+    count          = var.compartment_id != null ? 1 : 0
     compartment_id = var.compartment_id
     scope = "PRIVATE"
-    display_name = var.view_display_name
+    display_name = var.display_name
 }
 
 data "oci_dns_resolvers" "resolver" {
+  count          = var.compartment_id != null ? 1 : 0
     compartment_id = var.compartment_id
     scope = "PRIVATE"
     display_name = var.resolver_id

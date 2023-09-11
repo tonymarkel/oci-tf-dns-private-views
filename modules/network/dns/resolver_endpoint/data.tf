@@ -1,6 +1,6 @@
 data "oci_core_subnets" "subnet" {
     compartment_id = var.compartment_id
-    display_name = var.subnet_display_name
+    display_name = var.subnet_id
     vcn_id = data.oci_core_vcns.vcn.id
 }
 

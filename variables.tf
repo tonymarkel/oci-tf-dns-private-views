@@ -8,6 +8,7 @@ variable "dns_resolvers" {
     attached_views             = optional(list(object({
       view_id                     = string
     })))
+#    tenancy_id                 = string
     compartment_id             = string
     defined_tags               = optional(map(any))
     display_name               = string
@@ -41,4 +42,6 @@ variable "dns_resolver_endpoints" {
     nsg_ids                    = optional(list(string))
   }))
   default                    = {}
+}
+variable "tenancy_id" {
 }

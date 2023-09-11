@@ -25,6 +25,11 @@ variable "scope" {
   default = null
 }
 
+variable "resolver_id" {
+  type    = string
+  default = null
+}
+
 variable "key_name" {
   type    = string
   default = null
@@ -36,3 +41,13 @@ variable "view_id" {
 }
 
 variable "rules" {}
+
+variable "tenancy_id" {
+  type    = string
+  default = null
+}
+
+variable "dns_resolver" {
+  type        = map(any)
+  default     = {}
+}
