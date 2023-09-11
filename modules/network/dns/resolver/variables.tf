@@ -27,7 +27,7 @@ variable "scope" {
 
 variable "resolver_id" {
   type    = string
-  default = null
+  default = ""
 }
 
 variable "key_name" {
