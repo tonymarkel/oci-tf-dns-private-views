@@ -1,7 +1,7 @@
 module "dns_resolver" {
     source                  = "./modules/network/dns/resolver"
     for_each                = (var.dns_resolvers != null || var.dns_resolvers != {}) ? var.dns_resolvers : {}
-    view_id                 = data.oci_dns_views.view.views.id[0]
+    view_id                 = each.value.view_id
     compartment_id          = data.oci_identity_compartments.compartment.id[0]
     defined_tags            = each.value.defined_tags
     display_name            = each.value.display_name
