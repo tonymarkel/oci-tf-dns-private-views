@@ -15,8 +15,8 @@ resource oci_dns_resolver dns_resolver {
         action                    = rules.value.action
         client_address_conditions = rules.value.client_address_conditions
         destination_addresses     = rules.value.destination_addresses
-        qname_cover_conditions    = rules.qname_cover_conditions
-        source_endpoint_name      = rules.source_endpoint_name
+        qname_cover_conditions    = rules.value.qname_cover_conditions
+        source_endpoint_name      = rules.value.source_endpoint_name
     }
   }
 }
