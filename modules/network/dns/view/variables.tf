@@ -1,6 +1,6 @@
 variable "compartment_id" {
   type    = string
-  default = ""
+  default = null
 }
 
 variable "defined_tags" {
@@ -22,5 +22,5 @@ variable "freeform_tags" {
 
 variable "tenancy_id" {
   type    = string
-  default = ""
+  default = null
 }
