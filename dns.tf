@@ -1,3 +1,12 @@
+module "view" {
+    source                  = "./modules/network/dns/view"
+    for_each                = (var.views != null || var.views != {}) ? var.views : {}
+    compartment_id          = each.value.compartment_id
+    defined_tags            = each.value.defined_tags
+    display_name            = each.value.display_name
+    freeform_tags           = each.value.freeform_tags
+}
+
 module "dns_resolver" {
     source                  = "./modules/network/dns/resolver"
     for_each                = (var.dns_resolvers != null || var.dns_resolvers != {}) ? var.dns_resolvers : {}

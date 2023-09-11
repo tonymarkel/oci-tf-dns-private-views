@@ -2,6 +2,16 @@
 ## Private DNS         ##
 #########################
 
+variable "view" {
+  description                = "To create private views"
+  type                       = map(object({
+    compartment_id             = string
+    defined_tags               = optional(map(any))
+    display_name               = string
+    freeform_tags              = optional(map(any))
+  }))
+}
+
 variable "dns_resolvers" {
   description                = "To update existing DNS Resolvers"
   type                       = map(object({
