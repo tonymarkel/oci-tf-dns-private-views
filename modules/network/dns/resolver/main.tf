@@ -10,7 +10,7 @@ resource oci_dns_resolver dns_resolver {
   scope                    = var.scope
   # Rules
   dynamic "rules" {
-    for_each = var.rules != {} ? var.rules : {}
+    for_each = var.rules != null ? var.rules : null
     content {
         action                    = rules.value.action
         client_address_conditions = rules.value.client_address_conditions
