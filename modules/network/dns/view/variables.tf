@@ -22,5 +22,5 @@ variable "freeform_tags" {
 
 variable "tenancy_id" {
   type    = string
-  default = "ocid1.tenancy.oc1..aaaaaaaasab35mjpzcebclxds4pvot3pkqyrnfovnrbil253iekack2ene4q"
+  default = null
 }
