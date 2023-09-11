@@ -5,10 +5,7 @@
 variable "dns_resolvers" {
   description                = "To update existing DNS Resolvers"
   type                       = map(object({
-    attached_views             = optional(list(object({
-      view_id                     = string
-    })))
-#    tenancy_id                 = string
+    view_id                     = string
     compartment_id             = string
     defined_tags               = optional(map(any))
     display_name               = string
