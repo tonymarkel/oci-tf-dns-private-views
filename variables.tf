@@ -2,7 +2,7 @@
 ## Private DNS         ##
 #########################
 
-variable "view" {
+variable "views" {
   description                = "To create private views"
   type                       = map(object({
     compartment_id             = string
