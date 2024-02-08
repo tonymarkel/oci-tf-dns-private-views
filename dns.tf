@@ -1,7 +1,7 @@
 data "oci_identity_compartments" "compartments" {
   compartment_id            = var.tenancy_id
   compartment_id_in_subtree = true
-  name = var.compartment_id
+  name = var.dns_compartment_id
 }
 
 module "view" {

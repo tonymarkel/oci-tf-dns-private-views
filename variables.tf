@@ -55,7 +55,7 @@ variable "tenancy_id" {
   type = string
 }
 
-variable "compartment_id" {
+variable "dns_compartment_id" {
   type = string
 }
 

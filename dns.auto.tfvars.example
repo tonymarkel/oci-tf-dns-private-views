@@ -76,6 +76,7 @@ dns_resolver_endpoints = {
         nsg_ids            = []  
     },
     # example-private-subnet-listener = {
+    #     compartment_id     = "network-compartment"
     #     endpoint_type      = "VNIC"
     #     forwarding_address = ""
     #     is_forwarding      = "false"
@@ -89,5 +90,9 @@ dns_resolver_endpoints = {
     # },
 }
 
-tenancy_id = "ocid1.tenancy.oc1..aaaaaaaa...zzzz"
-compartment_id = "network-compartment"
+tenancy_id = "ocid1.tenancy.oc1..aaaaaaaa...zzzzzzzz"
+dns_compartment_id = "network-compartment"
+user_ocid = "ocid1.user.oc1..aaaaaaaam...zzzzzzzz" 
+private_key_path = "/path/to/private/key"
+fingerprint = "8b:a3:45:2f::::37:16:24:39:00"
+region = "us-ashburn-1"
