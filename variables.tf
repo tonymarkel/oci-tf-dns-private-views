@@ -17,6 +17,7 @@ variable "dns_resolvers" {
   type                       = map(object({
     view_id                     = string
     compartment_id             = string
+    vcn_id                     = string
     defined_tags               = optional(map(any))
     display_name               = string
     freeform_tags              = optional(map(any))
@@ -52,5 +53,8 @@ variable "dns_resolver_endpoints" {
 }
 variable "tenancy_id" {
   type = string
-  default = "ocid1.tenancy.oc1..aaaaaaaasab35mjpzcebclxds4pvot3pkqyrnfovnrbil253iekack2ene4q"
+}
+
+variable "compartment_id" {
+  type = string
 }

@@ -1,8 +1,8 @@
 views = {
   example = {
-    compartment_id           = "example"
+    compartment_id           = "network-compartment"
     defined_tags             = {}
-    display_name             = "example"
+    display_name             = "example-vcn"
     freeform_tags            = {}
   }
 }
@@ -13,11 +13,12 @@ dns_resolvers = {
         # "example" refers to the name of a vcn. Where you see example as a standalone 
         # definition, it is assuming that the names created for the view and resolver
         # match the name of the vcn. This is what happens when a vcn is created.
-        resolver_id              = "example"
-        view_id                  = "example"
-	compartment_id           = "example"
+        resolver_id              = "example-vcn"
+        view_id                  = "example-vcn"
+	    compartment_id           = "network-compartment"
+        vcn_id                   = "example-vcn"
         defined_tags             = {}
-        display_name             = "example"
+        display_name             = "example-vcn"
         freeform_tags            = {}
         scope                    = "PRIVATE"
         rules = [
@@ -31,7 +32,7 @@ dns_resolvers = {
                 qname_cover_conditions = [
                 "private.domain.host",
                 ]
-                source_endpoint_name = "example-endpoint-private-subnet"
+                source_endpoint_name = "example_endpoint_private_subnet"
             },
             {
                 action = "FORWARD"
@@ -43,37 +44,50 @@ dns_resolvers = {
                 qname_cover_conditions = [
                 "public.domain.host",
                 ]
-                source_endpoint_name = "example-endpoint-public-subnet"
+                source_endpoint_name = "example_endpoint_public_subnet"
             },
         ]
     },
 }
 
 dns_resolver_endpoints = {
-    example-private-subnet-forwarder = {
+    example_endpoint_private_subnet = {
         endpoint_type      = "VNIC"
-        forwarding_address = "172.21.34.252" #IP for the dns resolver endpoint in a local subnet
+        forwarding_address = "172.16.1.252" #IP for the dns resolver endpoint in a local subnet
         is_forwarding      = "true"
         is_listening       = "false"
         listening_address  = ""
-	name               = "example-private-subnet-forwarder"
-        vcn_display_name   = "example"
-        resolver_id        = "example"
-        subnet_id          = "private-subnet"       
+	    name               = "example_endpoint_private_subnet"
+        vcn_display_name   = "example-vcn"
+        resolver_id        = "example-vcn"
+        subnet_id          = "private-subnet"
         nsg_ids            = []  
     },
-    example-private-subnet-listener = {
+    example_endpoint_public_subnet = {
         endpoint_type      = "VNIC"
-        forwarding_address = "172.21.34.252" #IP for the dns resolver endpoint in a local subnet
-        is_forwarding      = "false"
-        is_listening       = "true"
-	listening_address  = ""
-        name               = "example-private-subnet-listener"
-        vcn_display_name   = "example"
-        resolver_id        = "example"
-        subnet_id          = "private-subnet"
-        nsg_ids            = []     
+        forwarding_address = "172.16.0.252" #IP for the dns resolver endpoint in a local subnet
+        is_forwarding      = "true"
+        is_listening       = "false"
+        listening_address  = ""
+	    name               = "example_endpoint_public_subnet"
+        vcn_display_name   = "example-vcn"
+        resolver_id        = "example-vcn"
+        subnet_id          = "public-subnet"       
+        nsg_ids            = []  
     },
+    # example-private-subnet-listener = {
+    #     endpoint_type      = "VNIC"
+    #     forwarding_address = ""
+    #     is_forwarding      = "false"
+    #     is_listening       = "true"
+	#     listening_address  = "172.16.1.251"
+    #     name               = "example_endpoint_private_listener"
+    #     vcn_display_name   = "example-vcn"
+    #     resolver_id        = "example-vcn"
+    #     subnet_id          = "private-subnet"
+    #     nsg_ids            = []
+    # },
 }
 
-tenancy_id = "ocid1.tenancy.oc1..aaaaaaaasab35mjpzcebclxds4pvot3pkqyrnfovnrbil253iekack2ene4q"
+tenancy_id = "ocid1.tenancy.oc1..aaaaaaaa...zzzz"
+compartment_id = "network-compartment"

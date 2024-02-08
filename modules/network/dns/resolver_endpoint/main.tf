@@ -6,7 +6,7 @@ resource oci_dns_resolver_endpoint resolver_endpoint {
   listening_address  = var.listening_address != "" ? var.listening_address : null
   name               = var.name
   nsg_ids            = var.nsg_ids
-  resolver_id        = var.resolver_id
+  resolver_id        = data.oci_core_vcn_dns_resolver_association.vcn_dns_resolver_association.dns_resolver_id
   scope              = var.scope
-  subnet_id          = data.oci_core_subnets.subnet.id
+  subnet_id          = data.oci_core_subnets.subnet.subnets[0].id
 }

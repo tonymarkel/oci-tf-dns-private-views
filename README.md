@@ -15,6 +15,7 @@ Terraform Code to integrate with an existing repository. This example uses the d
 * Existing Tenancy
 * Existing Compartments
 * Existing VCN
+* Existing Subnets
 * Policy to allow manmage for dns-family
 
 ## Directions:
@@ -22,3 +23,4 @@ Terraform Code to integrate with an existing repository. This example uses the d
 * Move the dns modules into the correct place in your repo
 * Copy the variables into your variables.tf
 * Copy the dns.tf to the root of your terraform repo
+* Modify the dns.auto.tfvars file as needed

@@ -2,12 +2,13 @@ resource oci_dns_resolver dns_resolver {
   attached_views {
     view_id                 = data.oci_dns_views.view[0].views[0].id
   }
-  compartment_id           = data.oci_identity_compartments.compartment[0].id
-  resolver_id              = var.resolver_id
+  compartment_id           = var.compartment_id
+  resolver_id              = data.oci_core_vcn_dns_resolver_association.vcn_dns_resolver_association.dns_resolver_id
   defined_tags             = var.defined_tags
   display_name             = var.display_name
   freeform_tags            = var.freeform_tags
   scope                    = var.scope
+  
   # Rules
   dynamic "rules" {
     for_each = var.rules != null ? var.rules : null

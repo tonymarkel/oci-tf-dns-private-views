@@ -3,6 +3,11 @@ variable "compartment_id" {
   default = null
 }
 
+variable "vcn_id" {
+  type = string
+  default = null
+}
+
 variable "defined_tags" {
   type = map(any)
   default = { "Oracle-Tags.CreatedOn" = "$${oci.datetime}",
@@ -27,7 +32,7 @@ variable "scope" {
 
 variable "resolver_id" {
   type    = string
-  default = ""
+  default = null
 }
 
 variable "key_name" {
