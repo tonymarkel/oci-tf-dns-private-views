@@ -11,5 +11,5 @@ data "oci_core_vcns" "vcns" {
 }
 
 data "oci_core_vcn_dns_resolver_association" "vcn_dns_resolver_association" {
-	vcn_id = data.oci_core_vcns.vcns.virtual_networks[0].id
+	vcn_id                    = data.oci_core_vcns.vcns.virtual_networks[0].id
 }

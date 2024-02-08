@@ -4,6 +4,7 @@ Adds private DNS resolvers to an existing VCN. This example uses the default vie
 ## Use Cases:
 * Hybrid or Multi-Cloud Scenarios where DNS exists on private domains not used in OCI DNS
 * Private DNS operated outside the context of OCI DNS
+* Expanding capabilities of [OCI CD3 Terraform](https://github.com/oracle-devrel/cd3-automation-toolkit) to incorporate private DNS
 
 ## OCI Provider Coverage:
 ### Resources
@@ -25,6 +26,10 @@ Adds private DNS resolvers to an existing VCN. This example uses the default vie
 * Existing VCNs
 * Existing Subnets
 * [Policy to allow manage for dns-family](https://docs.oracle.com/en-us/iaas/Content/Identity/Reference/dnspolicyreference.htm)
+
+## Assumptions
+* VCNs, subnets, and subsequent private DNS resolvers reside in a single compartment.
+* This works for a simgle tenancy
 
 ## Directions:
 * Copy the code locally
