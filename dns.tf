@@ -7,7 +7,6 @@ data "oci_identity_compartments" "compartments" {
 module "view" {
     source                  = "./modules/network/dns/view"
     for_each                = (var.views != null || var.views != {}) ? var.views : {}
-    # compartment_id        = each.value.compartment_id != null ? (length(regexall("ocid1.compartment.oc1*", each.value.compartment_id)) > 0 ? each.value.compartment_id : var.compartment_ocids[each.value.compartment_id]) : null
     compartment_id          = data.oci_identity_compartments.compartments.compartments[0].id
     defined_tags            = each.value.defined_tags
     display_name            = each.value.display_name
@@ -21,7 +20,6 @@ module "dns_resolver" {
     resolver_id             = each.value.resolver_id
     vcn_id                  = each.value.vcn_id
     view_id                 = each.value.view_id
-    # compartment_id          = each.value.compartment_id != null ? (length(regexall("ocid1.compartment.oc1*", each.value.compartment_id)) > 0 ? each.value.compartment_id : var.compartment_ocids[each.value.compartment_id]) : null
     compartment_id          = data.oci_identity_compartments.compartments.compartments[0].id
     tenancy_id              = var.tenancy_id
     defined_tags            = each.value.defined_tags
@@ -34,8 +32,6 @@ module "dns_resolver" {
 module "dns_resolver_endpoint" {
     source                  = "./modules/network/dns/resolver_endpoint"
     for_each                = (var.dns_resolver_endpoints != null || var.dns_resolver_endpoints != {}) ? var.dns_resolver_endpoints : {}
-    # depends_on              = [module.dns_resolver]
-    # compartment_id          = each.value.compartment_id != null ? (length(regexall("ocid1.compartment.oc1*", each.value.compartment_id)) > 0 ? each.value.compartment_id : var.compartment_ocids[each.value.compartment_id]) : null
     compartment_id          = data.oci_identity_compartments.compartments.compartments[0].id
     endpoint_type           = each.value.endpoint_type
     forwarding_address      = each.value.forwarding_address
