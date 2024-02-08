@@ -1,6 +1,0 @@
-[DEFAULT]
-user=ocid1.user.oc1..aaaaaaaa5yrwyfbzvjzcfn5z4tbwyx7hqiowj25ezuy5lqwfywm52vmzvwsq
-fingerprint=21:be:d9:9d:d0:3d:43:a1:46:5e:96:8a:08:5e:b1:87
-tenancy=ocid1.tenancy.oc1..aaaaaaaa46qsapirflomrcswh7qzfhaiv223wk3ks34rgb3vc6ssenqoazga
-region=us-ashburn-1
-key_file=~/.oci/tonymarkel.key
